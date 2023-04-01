@@ -1,0 +1,1 @@
+"F:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "E:\Engineering Practice\简单图书管理系统" -B "E:\Engineering Practice\简单图书管理系统\cmake-build-debug"
