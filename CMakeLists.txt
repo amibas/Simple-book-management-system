@@ -3,4 +3,4 @@ project(Simple-book-management-system)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Simple-book-management-system main.c DataManagement.c Gui.c Login.c)
+add_executable(Simple-book-management-system main.c DataManagement.c Gui.c Login.c FileTools.c)
