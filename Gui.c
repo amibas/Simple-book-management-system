@@ -4,42 +4,71 @@
 
 #include "Gui.h"
 
-int mainMenu() {
-    int functionSelection;
-    system("mode con cols=54 lines=30");
-    system("color F2");
+
+void show_main(void) {
     system("cls");
-    printf("**********************************************\n");
-    printf("*             欢迎使用图书管理系统           *\n");
-    printf("**********************************************\n");
+    printf("\t\t\t\t**********************************************\n");
+    printf("\t\t\t\t*             欢迎使用图书管理系统           *\n");
+    printf("\t\t\t\t**********************************************\n");
     printf("\n");
-    printf("*******************************\n");
-    printf("   _____ ____  __  __  _____ \n"
-           "  / ____|  _ \\|  \\/  |/ ____|\n"
-           " | (___ | |_) | \\  / | (___  \n"
-           "  \\___ \\|  _ <| |\\/| |\\___ \\ \n"
-           "  ____) | |_) | |  | |____) |\n"
-           " |_____/|____/|_|  |_|_____/ \n"
-           "                            \n");
-    printf("*******************************\n");
-    printf("1. 登录 2.退出\n");
-    printf("请选择功能：");
-    scanf("%d", &functionSelection);
-    return functionSelection;
+    printf("\t\t\t\t\t*******************************\n");
+    printf("\t\t\t\t\t   _____ ____  __  __  _____ \n"
+           "\t\t\t\t\t  / ____|  _ \\|  \\/  |/ ____|\n"
+           "\t\t\t\t\t | (___ | |_) | \\  / | (___  \n"
+           "\t\t\t\t\t  \\___ \\|  _ <| |\\/| |\\___ \\ \n"
+           "\t\t\t\t\t  ____) | |_) | |  | |____) |\n"
+           "\t\t\t\t\t |_____/|____/|_|  |_|_____/ \n"
+           "\t\t\t\t\t                            \n");
+    printf("\t\t\t\t\t*******************************\n");
+    printf("\n\t\t\t\t\t   *************************\n\n");
+    printf("\t\t\t\t\t\t   1)学生端\n");
+    printf("\t\t\t\t\t\t   2)管理员端\n");
+    printf("\t\t\t\t\t\t   0)退出\n");
+    printf("\n\t\t\t\t\t   *************************\n\n");
 }
 
-char loginMenu() {
-    char userName[10];
-    printf("请输入账号: ");
-    scanf("%s", userName);
-    login(userName);
+void show_stu(void) {
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 学生端");
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)登录\n");
+    printf("\t\t\t\t2)注册\n");
+    printf("\t\t\t\t3)找回密码\n");
+    printf("\t\t\t\t0)返回\n");
+    printf("\n\t\t\t*************************\n\n");
 }
 
-int endMenu() {
-    printf("\n");
-    printf("************\n");
-    printf("感谢你的使用\n");
-    printf("************\n");
+void show_stu_enter(void) {
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 学生页");
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)借书\n");
+    printf("\t\t\t\t2)还书\n");
+    printf("\t\t\t\t3)查书\n");
+    printf("\t\t\t\t4)浏览借阅情况\n");
+    printf("\t\t\t\t5)修改密码\n");
+    printf("\t\t\t\t0)返回\n");
+    printf("\n\t\t\t*************************\n\n");
+}
 
-    system("pause");
+void show_manager(void) {
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 管理员端");
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)登录\n");
+    printf("\t\t\t\t0)返回\n");
+    printf("\n\t\t\t*************************\n\n");
+}
+
+void show_manager_enter(void) {
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 管理员页");
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)上架书籍\n");
+    printf("\t\t\t\t2)下架书籍\n");
+    printf("\t\t\t\t3)浏览书架\n");
+    printf("\t\t\t\t4)管理学生账号\n");
+    printf("\t\t\t\t5)修改密码\n");
+    printf("\t\t\t\t0)退出\n");
+    printf("\n\t\t\t*************************\n\n");
 }

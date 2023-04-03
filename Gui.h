@@ -9,11 +9,16 @@
 #include "stdlib.h"
 #include "conio.h"
 #include<windows.h>
-#include "FileTools.h"
-#include "Login.h"
 
 
-extern int mainMenu();
-extern char loginMenu();
-extern int endMenu();
+extern void show_main(void);    //主界面
+
+extern void show_stu(void);     //学生端
+
+extern void show_stu_enter(void);   //学生页
+
+extern void show_manager(void);     //管理端
+
+extern void show_manager_enter(void);   //管理页
+
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_GUI_H
