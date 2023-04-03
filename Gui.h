@@ -7,7 +7,13 @@
 
 #include "stdio.h"
 #include "stdlib.h"
+#include "conio.h"
+#include<windows.h>
+#include "FileTools.h"
+#include "Login.h"
 
-extern void mainMenu();
 
+extern int mainMenu();
+extern char loginMenu();
+extern int endMenu();
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_GUI_H
