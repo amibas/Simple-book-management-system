@@ -3,6 +3,7 @@
 #include "DataManagement.h"
 #include "StudentPort.h"
 #include "ManagePage.h"
+#include "NoticePort.h"
 
 int main(void) {
     Book_head = (Book *) malloc(sizeof(Book));
@@ -14,7 +15,7 @@ int main(void) {
     Manager_head->next = Manager_load();
 
     char ma = '1';
-
+    system("color F4");
     while (ma != '0') {
         show_main();
         printf("\t\t\t£º");
@@ -26,6 +27,9 @@ int main(void) {
                 break;
             case '2':
                 Manager_Port();
+                break;
+            case '3':
+                Notices_Port();
                 break;
             case '0':
                 Massage_Save();

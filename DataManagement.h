@@ -40,6 +40,12 @@ typedef struct manager {
     struct manager *next;            //下个管理员
 } Manager;
 
+//公告结构体链表
+typedef struct notice {
+    char title[20];                    //公告标题
+    char notice[100];                //公告内容
+    struct notice *next;            //下个公告
+} Notice;
 
 extern Book *Book_head;
 extern Student *Student_head;

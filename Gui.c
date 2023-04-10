@@ -72,3 +72,15 @@ void show_manager_enter(void) {
     printf("\t\t\t\t0)退出\n");
     printf("\n\t\t\t*************************\n\n");
 }
+
+//显示公告界面
+void show_notice(void) {
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 公告");
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)查看公告\n");
+    printf("\t\t\t\t2)发布公告\n");
+    printf("\t\t\t\t3)删除公告\n");
+    printf("\t\t\t\t0)返回\n");
+    printf("\n\t\t\t*************************\n\n");
+}
