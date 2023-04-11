@@ -8,6 +8,7 @@
 Book *Book_head;
 Student *Student_head;
 Manager *Manager_head;
+Notice *Notice_head;
 
 
 Book *Book_load() {
@@ -233,6 +234,51 @@ void Save_Manger(void) {
     fprintf(fp, "%s ", t->man_acc);
     fprintf(fp, "%s", t->man_passw);
     fclose(fp);
+}
+
+//读取公告
+Notice *Notice_load(void){
+    FILE *fp;
+    Notice *h = NULL, *t = NULL, *p;
+    if ((fp = fopen("Notice.txt", "r")) == NULL) {
+        printf("\t\t打开失败\n");
+        exit(1);
+    }
+    getc(fp);
+    if (feof(fp)) {
+        fclose(fp);
+        return NULL;
+    }
+    rewind(fp);
+    while (!feof(fp)) {
+        p = (Notice *)malloc(sizeof(Notice));
+        p->next = NULL;
+        fscanf(fp, "%s", p->notice_num);
+        fscanf(fp, "%s", p->date);
+        fscanf(fp, "%s", p->title);
+        fscanf(fp, "%s", p->notice);
+    }
+}
+
+/**
+ * 保存公告
+ */
+void Save_Notice(void){
+    FILE *fp;
+    Notice *t = Notice_head->next;
+    if (!t)
+        return;
+    if ((fp = fopen("Notice.txt", "w+")) == NULL) {
+        printf("\t\t打开失败\n");
+        exit(1);
+    }
+    while (t->next) {
+        fprintf(fp, "%s ", t->notice_num);
+        fprintf(fp, "%s ", t->date);
+        fprintf(fp, "%s ", t->title);
+        fprintf(fp, "%s", t->notice);
+        t = t->next;
+    }
 }
 
 /*所有信息保存至文件*/
