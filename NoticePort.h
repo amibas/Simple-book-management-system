@@ -9,6 +9,7 @@
 #include <synchapi.h>
 #include "DataManagement.h"
 #include "Gui.h"
+#include "time.h"
 
 
 extern void View_Notice();  //查看公告

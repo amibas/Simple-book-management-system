@@ -36,22 +36,51 @@ void View_Notice() {
     }
 }
 
-/*发布公告*/
+/**
+ * 发布公告
+ */
 void Publish_Notice() {
-    //将公告信息写入文件
+    //打开公告文件
+    Notice *p = (Notice *) malloc(sizeof(Notice));
     FILE *fp;
     fp = fopen("Notice.txt", "a");
     if (fp == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
     }
+
+    //自动生成公告编号
+    //获取当前公告数量
+    int count = 0;
+    while (!feof(fp)) {
+        char notice[100];
+        fscanf(fp, "%s", notice);
+        count++;
+    }
+    //将公告数量转换为字符串
+    char count_str[10];
+    sprintf(count_str, "%d", count);
+    //将公告编号写入公告结构体
+    strcpy(p->notice_num, count_str);
+    //放回文件指针
+    rewind(fp);
+
+    //标题
+    printf("\t\t请输入公告标题：");
+    scanf("%s", p->title);
+
+    //自动生成公告发布时间
+    time_t t;
+    time(&t);
+    strcpy(p->notice_num, ctime(&t));
+
+    //内容
     printf("\t\t请输入公告内容：");
-    char notice[100];
-    scanf("%s", notice);
-    fprintf(fp, "%s\n", notice);
+    scanf("%s", p->notice);
+
+    //将公告信息写入文件
+    Save_Notice();
     fclose(fp);
-    printf("\t\t发布成功\n");
-    Sleep(1500);
 }
 
 /*删除公告*/
