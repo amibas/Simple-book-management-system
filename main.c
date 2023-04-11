@@ -5,6 +5,7 @@
 #include "ManagePage.h"
 #include "NoticePort.h"
 
+//Ö÷º¯Êý
 int main(void) {
     Book_head = (Book *) malloc(sizeof(Book));
     Student_head = (Student *) malloc(sizeof(Student));
@@ -29,7 +30,7 @@ int main(void) {
                 Manager_Port();
                 break;
             case '3':
-                Notices_Port();
+                Notice_Port();
                 break;
             case '0':
                 Massage_Save();
