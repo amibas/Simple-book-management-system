@@ -7,16 +7,21 @@
 
 //主函数
 int main(void) {
+    //初始化链表头
     Book_head = (Book *) malloc(sizeof(Book));
     Student_head = (Student *) malloc(sizeof(Student));
     Manager_head = (Manager *) malloc(sizeof(Manager));
+    Notice_head = (Notice *) malloc(sizeof(Notice));
 
+    //加载数据
     Book_head->next = Book_load();
     Student_head->next = Student_load();
     Manager_head->next = Manager_load();
+    Notice_head->next = Notice_load();
 
+    //主界面
     char ma = '1';
-    system("color F4");
+    system("color F4"); //设置控制台颜色
     while (ma != '0') {
         show_main();
         printf("\t\t\t：");
@@ -28,9 +33,6 @@ int main(void) {
                 break;
             case '2':
                 Manager_Port();
-                break;
-            case '3':
-                Notice_Port();
                 break;
             case '0':
                 Massage_Save();
