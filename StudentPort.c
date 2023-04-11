@@ -119,6 +119,9 @@ void Student_Register(void) {
     getch();
 }
 
+/**
+ * ÕÒ»ØÃÜÂë
+ */
 void Find_Password(void) {
     Student *find_tem;
     char num_tem[50];
