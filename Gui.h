@@ -21,4 +21,6 @@ extern void show_manager(void);     //管理端
 
 extern void show_manager_enter(void);   //管理页
 
+extern void show_notice(void);      //公告端
+
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_GUI_H

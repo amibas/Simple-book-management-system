@@ -46,6 +46,7 @@ void show_stu_enter(void) {
     printf("\t\t\t\t2)还书\n");
     printf("\t\t\t\t3)查书\n");
     printf("\t\t\t\t4)浏览借阅情况\n");
+    printf("\t\t\t\t5)查看公告\n");
     printf("\t\t\t\t5)修改密码\n");
     printf("\t\t\t\t0)返回\n");
     printf("\n\t\t\t*************************\n\n");
