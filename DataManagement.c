@@ -279,11 +279,13 @@ void Save_Notice(void){
         fprintf(fp, "%s", t->notice);
         t = t->next;
     }
+    fclose(fp);
 }
 
 /*所有信息保存至文件*/
 void Massage_Save(void) {
     Save_Book();
     Save_Student();
+    Save_Notice();
     Save_Manger();
 }
