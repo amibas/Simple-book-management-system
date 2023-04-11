@@ -8,10 +8,13 @@
 #include <stdio.h>
 #include <synchapi.h>
 #include "DataManagement.h"
+#include "Gui.h"
 
-extern void Notice_Port();
-extern void View_Notice();
-extern void Publish_Notice();
-extern void Delete_Notice();
+
+extern void View_Notice();  //查看公告
+
+extern void Publish_Notice();   //发布公告
+
+extern void Delete_Notice();    //删除公告
 
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_NOTICEPORT_H

@@ -5,54 +5,30 @@
 
 #include "NoticePort.h"
 
-
-/*å…¬å‘Šç«¯å£*/
-void Notice_Port() {
-    char sp = '1';
-    printf("\t\t\tï¼š");
-
-    scanf("%c", &sp);
-    while (getchar() != '\n');
-    switch (sp) {
-        case '1':
-            //æŸ¥çœ‹å…¬å‘Š
-            View_Notice();
-            break;
-        case '2':
-            //å‘å¸ƒå…¬å‘Š
-            Publish_Notice();
-            break;
-        case '3':
-            //åˆ é™¤å…¬å‘Š
-            Delete_Notice();
-            break;
-        case '0':
-            break;
-        default:
-            printf("\t\tè¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n");
-            Sleep(1500);
-            break;
-    }
-}
-
-/*æŸ¥çœ‹å…¬å‘Š*/
+/*²é¿´¹«¸æ*/
 void View_Notice() {
-    //ä»æ–‡ä»¶ä¸­è¯»å–å…¬å‘Šä¿¡æ¯
+    //´ÓÎÄ¼şÖĞ¶ÁÈ¡¹«¸æĞÅÏ¢
     FILE *fp;
     fp = fopen("Notice.txt", "r");
+    //Èç¹û²»´æÔÚ¹«¸æÎÄ¼ş£¬¾ÍĞÂ½¨Ò»¸ö
     if (fp == NULL) {
-        printf("\t\tæ‰“å¼€å¤±è´¥\n");
-        exit(1);
+        fp = fopen("Notice.txt", "w");
+        fclose(fp);
     }
+    //Èç¹ûÎÄ¼şÎª¿Õ£¬¾ÍÌáÊ¾ÔİÎŞ¹«¸æ
     getc(fp);
     if (feof(fp)) {
         fclose(fp);
-        printf("\t\tæš‚æ— å…¬å‘Š\n");
+        printf("\t\tÔİÎŞ¹«¸æ\n");
         Sleep(1500);
+        //µã»÷ÈÎÒâ¼ü·µ»Ø
+        printf("\t\tµ¥»÷ÈÎÒâ¼ü·µ»Ø¡£¡£¡£");
+        getchar();
         return;
     }
+    //Èç¹ûÎÄ¼ş²»Îª¿Õ£¬¾Í¶ÁÈ¡¹«¸æĞÅÏ¢
     rewind(fp);
-    printf("\t\tå…¬å‘Šå¦‚ä¸‹ï¼š\n");
+    printf("\t\t¹«¸æÈçÏÂ£º\n");
     while (!feof(fp)) {
         char notice[100];
         fscanf(fp, "%s", notice);
@@ -60,34 +36,34 @@ void View_Notice() {
     }
 }
 
-/*å‘å¸ƒå…¬å‘Š*/
+/*·¢²¼¹«¸æ*/
 void Publish_Notice() {
-    //å°†å…¬å‘Šä¿¡æ¯å†™å…¥æ–‡ä»¶
+    //½«¹«¸æĞÅÏ¢Ğ´ÈëÎÄ¼ş
     FILE *fp;
     fp = fopen("Notice.txt", "a");
     if (fp == NULL) {
-        printf("\t\tæ‰“å¼€å¤±è´¥\n");
+        printf("\t\t´ò¿ªÊ§°Ü\n");
         exit(1);
     }
-    printf("\t\tè¯·è¾“å…¥å…¬å‘Šå†…å®¹ï¼š");
+    printf("\t\tÇëÊäÈë¹«¸æÄÚÈİ£º");
     char notice[100];
     scanf("%s", notice);
     fprintf(fp, "%s\n", notice);
     fclose(fp);
-    printf("\t\tå‘å¸ƒæˆåŠŸ\n");
+    printf("\t\t·¢²¼³É¹¦\n");
     Sleep(1500);
 }
 
-/*åˆ é™¤å…¬å‘Š*/
+/*É¾³ı¹«¸æ*/
 void Delete_Notice() {
-    //å°†å…¬å‘Šæ–‡ä»¶æ¸…ç©º
+    //½«¹«¸æÎÄ¼şÇå¿Õ
     FILE *fp;
     fp = fopen("Notice.txt", "w");
     if (fp == NULL) {
-        printf("\t\tæ‰“å¼€å¤±è´¥\n");
+        printf("\t\t´ò¿ªÊ§°Ü\n");
         exit(1);
     }
     fclose(fp);
-    printf("\t\tåˆ é™¤æˆåŠŸ\n");
+    printf("\t\tÉ¾³ı³É¹¦\n");
     Sleep(1500);
 }
