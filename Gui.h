@@ -9,7 +9,7 @@
 #include "stdlib.h"
 #include "conio.h"
 #include<windows.h>
-
+#include "DataManagement.h"
 
 extern void show_main(void);            //主界面
 
@@ -21,6 +21,8 @@ extern void show_manager(void);         //管理端
 
 extern void show_manager_enter(void);   //管理页
 
-extern void show_notice(void);          //公告端
+extern void showStudentNotice(void);    //学生公告页面
+
+extern void showManagerNotice(void);    //管理员公告页面
 
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_GUI_H

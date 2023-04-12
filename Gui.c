@@ -47,7 +47,7 @@ void show_stu_enter(void) {
     printf("\t\t\t\t3)查书\n");
     printf("\t\t\t\t4)浏览借阅情况\n");
     printf("\t\t\t\t5)查看公告\n");
-    printf("\t\t\t\t5)修改密码\n");
+    printf("\t\t\t\t6)修改密码\n");
     printf("\t\t\t\t0)返回\n");
     printf("\n\t\t\t*************************\n\n");
 }
@@ -74,14 +74,34 @@ void show_manager_enter(void) {
     printf("\n\t\t\t*************************\n\n");
 }
 
-//显示公告界面
-void show_notice(void) {
+//显示学生公告界面
+void showStudentNotice(void) {
     system("CLS");
     printf("\n\n\n\t\t\t\t 公告");
+    //当前图书馆书籍总量，与借书最多的人
+    printf("\n\t\t\t*************************\n\n");
+    printf("\n\n\n\t\t\t\t 当前图书馆书籍总量：%d本", getBookCount());
+    printf("\n\n\n\t\t\t\t 借书最多的人：%s", getMostBorrower());
     printf("\n\t\t\t*************************\n\n");
     printf("\t\t\t\t1)查看公告\n");
-    printf("\t\t\t\t2)发布公告\n");
-    printf("\t\t\t\t3)删除公告\n");
+    printf("\t\t\t\t2)搜索公告\n");
+    printf("\t\t\t\t0)返回\n");
+    printf("\n\t\t\t*************************\n\n");
+}
+
+/*管理员公告界面*/
+void showManagerNotice(void){
+    system("CLS");
+    printf("\n\n\n\t\t\t\t 公告");
+    //当前图书馆书籍总量，与借书最多的人
+    printf("\n\t\t\t*************************\n\n");
+    printf("\n\n\n\t\t\t\t 当前图书馆书籍总量：%d本", getBookCount());
+    printf("\n\n\n\t\t\t\t 借书最多的人：%s", getMostBorrower());
+    printf("\n\t\t\t*************************\n\n");
+    printf("\t\t\t\t1)查看公告\n");
+    printf("\t\t\t\t2)搜索公告\n");
+    printf("\t\t\t\t3)发布公告\n");
+    printf("\t\t\t\t4)删除公告\n");
     printf("\t\t\t\t0)返回\n");
     printf("\n\t\t\t*************************\n\n");
 }
