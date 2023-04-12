@@ -132,7 +132,7 @@ void Manager_Look_Book(void) {
     return;
 }
 
-//编号升序查看书架
+/*编号升序查看书架*/
 void Lookofnum(void) {
     if (Book_head->next == NULL) {
         printf("\t\t暂无书籍\n");
@@ -141,10 +141,10 @@ void Lookofnum(void) {
     if (Book_head->next->next == NULL) {
         return;
     }
-    Book *p1, *p2, *p3, *end, *tem;
-    Book *head = Book_head;
+    Book *p1, *p2, *p3, *end, *tem; //p1为p2的前驱，p3为p2的后继
+    Book *head = Book_head;         //头结点
     end = NULL;
-    while (head->next != end) {
+    while (head->next != end) {     //当头结点的后继不为尾结点时
         for (p1 = head, p2 = p1->next, p3 = p2->next; p3 != end; p1 = p1->next, p2 = p2->next, p3 = p3->next) {
             if ((strcmp(p2->book_num, p3->book_num)) > 0) {
                 p1->next = p2->next;
@@ -158,10 +158,10 @@ void Lookofnum(void) {
         }
         end = p2;
     }
-    Manager_Print_Book();
+    Manager_Print_Book();        //打印书架
 }
 
-//库存升序查看书架
+/*库存升序查看书架*/
 void Lookofrest(void) {
     if (Book_head->next == NULL) {
         printf("\t\t暂无书籍\n");
@@ -170,7 +170,7 @@ void Lookofrest(void) {
     if (Book_head->next->next == NULL) {
         return;
     }
-    Book *p1, *p2, *p3, *end, *tem;
+    Book *p1, *p2, *p3, *end, *tem; //p1为p2的前驱，p3为p2的后继
     Book *head = Book_head;
     end = NULL;
     while (head->next != end) {
@@ -190,7 +190,7 @@ void Lookofrest(void) {
     Manager_Print_Book();
 }
 
-//价格升序查看书架
+/*价格升序查看书架*/
 void Lookofprice(void) {
     if (Book_head->next == NULL) {
         printf("\t\t暂无书籍\n");
@@ -219,8 +219,9 @@ void Lookofprice(void) {
     Manager_Print_Book();
 }
 
+/*打印书籍*/
 void Manager_Print_Book(void) {
-    Book *t = Book_head->next;;
+    Book *t = Book_head->next;
     if (t == NULL) {
         printf("\t\t没有任何书籍信息\n");
         return;
@@ -278,8 +279,6 @@ void Manager_Change_Password(Manager *Man_num) {
 
 /*上架书籍*/
 void Manager_Add_Book(void) {
-
-
     char mab = '1';
 
     while (mab != '0') {
@@ -308,6 +307,7 @@ void Manager_Add_Book(void) {
     }
 }
 
+/*增加库存*/
 void Manager_Add_Book1(void) {
     Book *t;
     int n;
@@ -340,6 +340,7 @@ void Manager_Add_Book1(void) {
     getch();
 }
 
+/*上架新书*/
 void Manager_Add_Book2(void) {
 
     printf("\t\t请输入以下信息：\n");
@@ -546,6 +547,7 @@ void Manager_Return_Stu(void) {
     return;
 }
 
+/*查找学生*/
 Student *Find_Stu(char *Stu_Stuty) {
     Student *t = Student_head->next;
     while (t) {
@@ -556,6 +558,7 @@ Student *Find_Stu(char *Stu_Stuty) {
     return t;
 }
 
+/*删除学生*/
 void Manager_Del_Stu(void) {
     char bh[20];
     Book *a;
