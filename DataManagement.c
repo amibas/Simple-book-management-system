@@ -10,7 +10,7 @@ Student *Student_head;
 Manager *Manager_head;
 Notice *Notice_head;
 
-
+/*载入书籍 */
 Book *Book_load() {
     FILE *fp;
     Book *h = NULL, *t = h, *p;
@@ -23,19 +23,20 @@ Book *Book_load() {
         fclose(fp);
         return NULL;
     }
-    rewind(fp);
-    while (!feof(fp)) {
+    rewind(fp); //将文件指针指向文件开头
+    while (!feof(fp)) { //判断文件是否结束
         p = (Book *) malloc(sizeof(Book));
         p->next = NULL;
+        //将文件中的信息读取到结构体中
         fscanf(fp, "%s", p->book_num);
         fscanf(fp, "%s", p->book_name);
         fscanf(fp, "%s", p->book_at_name);
         fscanf(fp, "%s", p->book_cp_name);
         fscanf(fp, "%f", &p->book_price);
         fscanf(fp, "%d", &p->book_rest);
-        if (h == NULL)
+        if (h == NULL)  //如果是第一个结点
             h = p;
-        else
+        else            //如果不是第一个结点
             t->next = p;
         t = p;
     }
@@ -57,9 +58,11 @@ Student *Student_load(void) {
         return NULL;
     }
     rewind(fp);
+
     while (!feof(fp)) {
         p = (Student *) malloc(sizeof(Student));
         p->next = NULL;
+        //将文件中的信息读取到结构体中
         fscanf(fp, "%s", p->stu_acc);
         fscanf(fp, "%s", p->stu_passw);
         fscanf(fp, "%s", p->stu_find_question);
@@ -67,17 +70,20 @@ Student *Student_load(void) {
         fscanf(fp, "%s", p->stu_num);
         fscanf(fp, "%s", p->stu_name);
         fscanf(fp, "%s", p->stu_tel);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {                                  //读取学生借阅的书籍
             fscanf(fp, "%s", p->stu_bor_book[i]);
         }
-        int len = strlen(p->stu_passw);            //密码解密
+
+        int len = strlen(p->stu_passw);                             //密码解密
         for (int i = 0; i < len; i++) {
             p->stu_passw[i] = p->stu_passw[i] - (i % 4 + 1);
         }
-        len = strlen(p->stu_find_passw);            //密保密码解密
+
+        len = strlen(p->stu_find_passw);                            //密保密码解密
         for (int i = 0; i < len; i++) {
             p->stu_find_passw[i] = p->stu_find_passw[i] - (i % 4 + 1);
         }
+
         if (h == NULL)
             h = p;
         else
@@ -88,6 +94,7 @@ Student *Student_load(void) {
     return h;
 }
 
+/*载入管理员*/
 Manager *Manager_load(void) {
     FILE *fp;
     Manager *h = NULL, *t = h, *p;
@@ -101,13 +108,14 @@ Manager *Manager_load(void) {
         return NULL;
     }
     rewind(fp);
+
     while (!feof(fp)) {
         p = (Manager *) malloc(sizeof(Manager));
         p->next = NULL;
         fscanf(fp, "%s", p->man_name);
         fscanf(fp, "%s", p->man_acc);
         fscanf(fp, "%s", p->man_passw);
-        int len = strlen(p->man_passw);            //密码解密
+        int len = strlen(p->man_passw);                     //密码解密
         for (int i = 0; i < len; i++) {
             p->man_passw[i] = p->man_passw[i] - (i % 4 + 1);
 
@@ -132,6 +140,7 @@ void Save_Book(void) {
         printf("\t\t打开失败\n");
         exit(1);
     }
+    //将链表中的信息写入文件
     while (t->next) {
         fprintf(fp, "%s ", t->book_num);
         fprintf(fp, "%s ", t->book_name);
@@ -141,6 +150,7 @@ void Save_Book(void) {
         fprintf(fp, "%d\n", t->book_rest);
         t = t->next;
     }
+    //将最后一个结点的信息写入文件
     fprintf(fp, "%s ", t->book_num);
     fprintf(fp, "%s ", t->book_name);
     fprintf(fp, "%s ", t->book_at_name);
@@ -161,14 +171,16 @@ void Save_Student(void) {
         exit(1);
     }
     while (t->next) {
-        int len = strlen(t->stu_passw);            //密码加密
+        int len = strlen(t->stu_passw);                                 //密码加密
         for (int i = 0; i < len; i++) {
             t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
         }
-        len = strlen(t->stu_find_passw);            //密保密码加密
+
+        len = strlen(t->stu_find_passw);                                //密保密码加密
         for (int i = 0; i < len; i++) {
             t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
         }
+        //将链表中的信息写入文件
         fprintf(fp, "%s ", t->stu_acc);
         fprintf(fp, "%s ", t->stu_passw);
         fprintf(fp, "%s ", t->stu_find_question);
@@ -176,6 +188,7 @@ void Save_Student(void) {
         fprintf(fp, "%s ", t->stu_num);
         fprintf(fp, "%s ", t->stu_name);
         fprintf(fp, "%s ", t->stu_tel);
+        //将学生借阅的书籍写入文件
         for (int i = 0; i < 9; i++) {
             fprintf(fp, "%s ", t->stu_bor_book[i]);
         }
@@ -183,14 +196,16 @@ void Save_Student(void) {
         t = t->next;
     }
 
-    int len = strlen(t->stu_passw);            //密码加密
+    int len = strlen(t->stu_passw);                                     //密码加密
     for (int i = 0; i < len; i++) {
         t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
     }
-    len = strlen(t->stu_find_passw);            //密保密码加密
+
+    len = strlen(t->stu_find_passw);                                    //密保密码加密
     for (int i = 0; i < len; i++) {
         t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
     }
+    //将链表中的信息写入文件
     fprintf(fp, "%s ", t->stu_acc);
     fprintf(fp, "%s ", t->stu_passw);
     fprintf(fp, "%s ", t->stu_find_question);
@@ -198,6 +213,7 @@ void Save_Student(void) {
     fprintf(fp, "%s ", t->stu_num);
     fprintf(fp, "%s ", t->stu_name);
     fprintf(fp, "%s ", t->stu_tel);
+    //将学生借阅的书籍写入文件
     for (int i = 0; i < 9; i++) {
         fprintf(fp, "%s ", t->stu_bor_book[i]);
     }
@@ -217,7 +233,7 @@ void Save_Manger(void) {
         exit(1);
     }
     while (t->next) {
-        int len = strlen(t->man_passw);            //密码加密
+        int len = strlen(t->man_passw);                     //密码加密
         for (int i = 0; i < len; i++) {
             t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
         }
@@ -226,18 +242,20 @@ void Save_Manger(void) {
         fprintf(fp, "%s\n", t->man_passw);
         t = t->next;
     }
-    int len = strlen(t->man_passw);            //密码加密
+
+    int len = strlen(t->man_passw);                         //密码加密
     for (int i = 0; i < len; i++) {
         t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
     }
+    //将链表中的信息写入文件
     fprintf(fp, "%s ", t->man_name);
     fprintf(fp, "%s ", t->man_acc);
     fprintf(fp, "%s", t->man_passw);
     fclose(fp);
 }
 
-//读取公告
-Notice *Notice_load(void){
+/*读取公告*/
+Notice *Notice_load(void) {
     FILE *fp;
     Notice *h = NULL, *t = NULL, *p;
     if ((fp = fopen("Notice.txt", "r")) == NULL) {
@@ -250,8 +268,9 @@ Notice *Notice_load(void){
         return NULL;
     }
     rewind(fp);
+    //将文件中的信息读入链表
     while (!feof(fp)) {
-        p = (Notice *)malloc(sizeof(Notice));
+        p = (Notice *) malloc(sizeof(Notice));
         p->next = NULL;
         fscanf(fp, "%s", p->notice_num);
         fscanf(fp, "%s", p->date);
@@ -260,10 +279,8 @@ Notice *Notice_load(void){
     }
 }
 
-/**
- * 保存公告
- */
-void Save_Notice(void){
+/*保存公告*/
+void Save_Notice(void) {
     FILE *fp;
     Notice *t = Notice_head->next;
     if (!t)
@@ -272,6 +289,7 @@ void Save_Notice(void){
         printf("\t\t打开失败\n");
         exit(1);
     }
+    //将链表中的信息写入文件
     while (t->next) {
         fprintf(fp, "%s ", t->notice_num);
         fprintf(fp, "%s ", t->date);
