@@ -12,7 +12,7 @@
 #include "time.h"
 
 
-extern void View_Notice();  //查看公告
+extern void View_Notice();      //查看公告
 
 extern void Publish_Notice();   //发布公告
 

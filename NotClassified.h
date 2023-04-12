@@ -13,13 +13,13 @@
 #include <string.h>
 
 
-extern void RandStr(int l, char *ch);
+extern void RandStr(int l, char *ch);           //生成随机字符串
 
-extern void Password_Input(char *Password);
+extern void Password_Input(char *Password);     //密码输入
 
-extern int Password_Text(char *Password);
+extern int Password_Text(char *Password);       //密码判断
 
-extern int Password_Text_Find(char *Password);
+extern int Password_Text_Find(char *Password);  //密码判断（查找）
 
 
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_NOTCLASSIFIED_H
