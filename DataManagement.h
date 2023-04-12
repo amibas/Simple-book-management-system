@@ -55,6 +55,10 @@ extern Student *Student_head;   //学生头指针
 extern Manager *Manager_head;   //管理员头指针
 extern Notice *Notice_head;     //公告头指针
 
+extern char *getMostBorrower();     //最多借书人
+
+extern int getBookCount();          //书籍数量
+
 extern Book *Book_load();           //加载书籍
 
 extern Student *Student_load(void); //加载学生

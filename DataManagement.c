@@ -10,6 +10,39 @@ Student *Student_head;
 Manager *Manager_head;
 Notice *Notice_head;
 
+
+/*借书最多的人*/
+char *getMostBorrower() {
+    Student *p = Student_head;
+    int max = 0;
+    char *name = (char *) malloc(sizeof(char) * 20);
+    while (p != NULL) {
+        int count = 0;
+        for (int i = 0; i < 10; i++) {
+            if (strcmp(p->stu_bor_book[i], "0") != 0) {
+                count++;
+            }
+        }
+        if (count > max) {
+            max = count;
+            strcpy(name, p->stu_name);
+        }
+        p = p->next;
+    }
+    return name;
+}
+
+/*获取书籍数量*/
+int getBookCount() {
+    Book *p = Book_head;
+    int count = 0;
+    while (p != NULL) {
+        count++;
+        p = p->next;
+    }
+    return count;
+}
+
 /*载入书籍 */
 Book *Book_load() {
     FILE *fp;
