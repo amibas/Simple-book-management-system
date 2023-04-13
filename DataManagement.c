@@ -302,7 +302,7 @@ void Save_Manger(void) {
 Notice *Notice_load(void) {
     FILE *fp;
     Notice *h = NULL, *t = h, *p;
-    if ((fp = fopen("Notice.dat", "r")) == NULL) {
+    if ((fp = fopen("Notice.txt", "r")) == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
     }
@@ -313,19 +313,15 @@ Notice *Notice_load(void) {
     }
     rewind(fp);
 
-    while (!feof(fp)) {
-        p = (Notice *) malloc(sizeof(Notice));
+    p = (Notice *) malloc(sizeof(Notice));
+    while (fscanf(fp, "%s %s %s %s", p->notice_num, p->date, p->title, p->notice) != EOF) {
         p->next = NULL;
-//        fscanf(fp, "%s ", p->notice_num);
-//        fscanf(fp, "%s ", p->date);
-//        fscanf(fp, "%s ", p->title);
-//        fscanf(fp, "%s\n", p->notice);
-        fread(p, sizeof(Notice), 1, fp);
         if (h == NULL)
             h = p;
         else
             t->next = p;
         t = p;
+        p = (Notice *) malloc(sizeof(Notice));
     }
     fclose(fp);
     return h;
@@ -337,27 +333,14 @@ void Save_Notice(void) {
     Notice *t = Notice_head->next;
     if (!t)
         return;
-    if ((fp = fopen("Notice.dat", "w+")) == NULL) {
+    if ((fp = fopen("Notice.txt", "w+")) == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
     }
-    while (t->next) {
-
-//        fscanf(fp, "%s ", t->notice_num);
-//        fscanf(fp, "%s ", t->date);
-//        fscanf(fp, "%s ", t->title);
-//        fscanf(fp, "%s\n", t->notice);
-        fwrite(t, sizeof(Notice), 1, fp);
+    while (t->next != NULL) {
+        fprintf(fp, "%s %s %s %s\n", t->notice_num, t->date, t->title, t->notice);
         t = t->next;
     }
-
-
-    //将链表尾中的信息写入文件
-//    fscanf(fp, "%s ", t->notice_num);
-//    fscanf(fp, "%s ", t->date);
-//    fscanf(fp, "%s ", t->title);
-//    fscanf(fp, "%s", t->notice);
-    fwrite(t, sizeof(Notice), 1, fp);
 
     fclose(fp);
 }

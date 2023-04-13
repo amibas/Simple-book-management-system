@@ -17,7 +17,6 @@ void Student_Port(void) {
         printf("\t\t\t：");
 
         scanf("%c", &sp);   //输入选择
-        while (getchar() != '\n');
         //判断选择
         switch (sp) {
             case '1':
@@ -36,6 +35,7 @@ void Student_Port(void) {
                 Sleep(1500);
                 break;
         }
+        while (getchar() != '\n');  //清空缓冲区
     }
 }
 
@@ -197,6 +197,7 @@ void Student_Login(void) {
     int l = 1;
 
     Student *enter_stu;
+    while (getchar() != '\n');  //清空缓冲区
     while (l != 6) {
         printf("\n\t\t请输入你的账号：");
         gets(enter_num);
@@ -232,7 +233,7 @@ void Student_Login(void) {
         show_stu_enter();
         printf("\t\t：");
         scanf("%c", &sl);
-        while (getchar() != '\n');
+        while (getchar() != '\n');  //清空缓冲区
         switch (sl) {
             case '1':
                 Stu_Borrow(enter_stu);              //借书

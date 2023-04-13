@@ -5,6 +5,7 @@
 #include "StudentPage.h"
 
 void Find_Book(void) {
+    while (getchar() != '\n');  //清空缓冲区
     Book *t = Book_head->next;
     char book_n[20];
     if (t == NULL) {
@@ -55,6 +56,7 @@ Book *Find_BookofName(char *Book_num) {
 }
 
 void Change_Stupassword(Student *Stu_num) {
+    while (getchar() != '\n');  //清空缓冲区
     char password_tem[20];
     printf("\t\t加载中···\n");
     Sleep(500);
@@ -91,6 +93,7 @@ void Change_Stupassword(Student *Stu_num) {
 }
 
 void Find_Theborrow(Student *Stu_num) {
+    while (getchar() != '\n');  //清空缓冲区
     int tem = 0;
     Book *t;
     printf("\t\t查找中···\n");
@@ -129,6 +132,7 @@ void Stu_Borrow(Student *Stu_num) {
     int n = 0;
     Book *t;
     char numb[10];
+    while (getchar() != '\n');  //清空缓冲区
     for (int i = 0; i < 10; i++) {
         if (strcmp(Stu_num->stu_bor_book[i], "0") != 0)
             n++;

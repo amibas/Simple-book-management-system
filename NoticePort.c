@@ -135,9 +135,9 @@ void Publish_Notice() {
     //生成发布时间
     int i = 0;
     time_t tt = time(0);
-    //产生“YYYY-MM-DD hh:mm:ss”格式的字符串。
+    //产生“YYYY-MM-DD-hh:mm:ss”格式的字符串。
     char s[32];
-    strftime(s, sizeof(s), "%Y-%m-%d %H:%M:%S", localtime(&tt));
+    strftime(s, sizeof(s), "%Y-%m-%d-%H:%M:%S", localtime(&tt));
     //s[i] = '\n';
     s[31] = '\n';
     strcpy(new->date, s);
