@@ -117,15 +117,15 @@ Student *Student_load(void) {
             fscanf(fp, "%s", p->stu_bor_book[i]);
         }
 
-        int len = strlen(p->stu_passw);                             //密码解密
-        for (int i = 0; i < len; i++) {
-            p->stu_passw[i] = p->stu_passw[i] - (i % 4 + 1);
-        }
+//        int len = strlen(p->stu_passw);                             //密码解密
+//        for (int i = 0; i < len; i++) {
+//            p->stu_passw[i] = p->stu_passw[i] - (i % 4 + 1);
+//        }
 
-        len = strlen(p->stu_find_passw);                            //密保密码解密
-        for (int i = 0; i < len; i++) {
-            p->stu_find_passw[i] = p->stu_find_passw[i] - (i % 4 + 1);
-        }
+//        len = strlen(p->stu_find_passw);                            //密保密码解密
+//        for (int i = 0; i < len; i++) {
+//            p->stu_find_passw[i] = p->stu_find_passw[i] - (i % 4 + 1);
+//        }
 
         if (h == NULL)
             h = p;
@@ -158,11 +158,11 @@ Manager *Manager_load(void) {
         fscanf(fp, "%s", p->man_name);
         fscanf(fp, "%s", p->man_acc);
         fscanf(fp, "%s", p->man_passw);
-        int len = strlen(p->man_passw);                     //密码解密
-        for (int i = 0; i < len; i++) {
-            p->man_passw[i] = p->man_passw[i] - (i % 4 + 1);
-
-        }
+//        int len = strlen(p->man_passw);                     //密码解密
+//        for (int i = 0; i < len; i++) {
+//            p->man_passw[i] = p->man_passw[i] - (i % 4 + 1);
+//
+//        }
         if (h == NULL)
             h = p;
         else
@@ -214,15 +214,15 @@ void Save_Student(void) {
         exit(1);
     }
     while (t->next) {
-        int len = strlen(t->stu_passw);                                 //密码加密
-        for (int i = 0; i < len; i++) {
-            t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
-        }
-
-        len = strlen(t->stu_find_passw);                                //密保密码加密
-        for (int i = 0; i < len; i++) {
-            t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
-        }
+//        int len = strlen(t->stu_passw);                                 //密码加密
+//        for (int i = 0; i < len; i++) {
+//            t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
+//        }
+//
+//        len = strlen(t->stu_find_passw);                                //密保密码加密
+//        for (int i = 0; i < len; i++) {
+//            t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
+//        }
         //将链表中的信息写入文件
         fprintf(fp, "%s ", t->stu_acc);
         fprintf(fp, "%s ", t->stu_passw);
@@ -239,15 +239,15 @@ void Save_Student(void) {
         t = t->next;
     }
     //将最后一个结点的信息写入文件
-    int len = strlen(t->stu_passw);                                     //密码加密
-    for (int i = 0; i < len; i++) {
-        t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
-    }
-
-    len = strlen(t->stu_find_passw);                                    //密保密码加密
-    for (int i = 0; i < len; i++) {
-        t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
-    }
+//    int len = strlen(t->stu_passw);                                     //密码加密
+//    for (int i = 0; i < len; i++) {
+//        t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
+//    }
+//
+//    len = strlen(t->stu_find_passw);                                    //密保密码加密
+//    for (int i = 0; i < len; i++) {
+//        t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
+//    }
     //将链表中的信息写入文件
     fprintf(fp, "%s ", t->stu_acc);
     fprintf(fp, "%s ", t->stu_passw);
@@ -275,21 +275,22 @@ void Save_Manger(void) {
         printf("\t\t打开失败\n");
         exit(1);
     }
+
     while (t->next) {
-        int len = strlen(t->man_passw);                     //密码加密
-        for (int i = 0; i < len; i++) {
-            t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
-        }
+//        int len = strlen(t->man_passw);                     //密码加密
+//        for (int i = 0; i < len; i++) {
+//            t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
+//        }
         fprintf(fp, "%s ", t->man_name);
         fprintf(fp, "%s ", t->man_acc);
         fprintf(fp, "%s\n", t->man_passw);
         t = t->next;
     }
 
-    int len = strlen(t->man_passw);                         //密码加密
-    for (int i = 0; i < len; i++) {
-        t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
-    }
+//    int len = strlen(t->man_passw);                         //密码加密
+//    for (int i = 0; i < len; i++) {
+//        t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
+//    }
     //将链表中的信息写入文件
     fprintf(fp, "%s ", t->man_name);
     fprintf(fp, "%s ", t->man_acc);
@@ -300,8 +301,8 @@ void Save_Manger(void) {
 /*读取公告*/
 Notice *Notice_load(void) {
     FILE *fp;
-    Notice *h = NULL, *t = NULL, *p;
-    if ((fp = fopen("Notice.txt", "r")) == NULL) {
+    Notice *h = NULL, *t = h, *p;
+    if ((fp = fopen("Notice.dat", "r")) == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
     }
@@ -311,20 +312,23 @@ Notice *Notice_load(void) {
         return NULL;
     }
     rewind(fp);
-    //将文件中的信息读入链表
-    Notice *head = (Notice *) malloc(sizeof(Notice));
-    head->next = NULL;
-    Notice *q = head;
+
     while (!feof(fp)) {
         p = (Notice *) malloc(sizeof(Notice));
-        fscanf(fp, "%s ", p->notice_num);
-        fscanf(fp, "%s ", p->date);
-        fscanf(fp, "%s ", p->title);
-        fscanf(fp, "%s\n", p->notice);
-        q->next = p;
-        q = p;
+        p->next = NULL;
+//        fscanf(fp, "%s ", p->notice_num);
+//        fscanf(fp, "%s ", p->date);
+//        fscanf(fp, "%s ", p->title);
+//        fscanf(fp, "%s\n", p->notice);
+        fread(p, sizeof(Notice), 1, fp);
+        if (h == NULL)
+            h = p;
+        else
+            t->next = p;
+        t = p;
     }
-    return head;
+    fclose(fp);
+    return h;
 }
 
 /*保存公告*/
@@ -333,18 +337,28 @@ void Save_Notice(void) {
     Notice *t = Notice_head->next;
     if (!t)
         return;
-    if ((fp = fopen("Notice.txt", "w+")) == NULL) {
+    if ((fp = fopen("Notice.dat", "w+")) == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
     }
-    //将链表中的信息写入文件
     while (t->next) {
-        fprintf(fp, "%s ", t->notice_num);
-        fprintf(fp, "%s ", t->date);
-        fprintf(fp, "%s ", t->title);
-        fprintf(fp, "%s\n", t->notice);
+
+//        fscanf(fp, "%s ", t->notice_num);
+//        fscanf(fp, "%s ", t->date);
+//        fscanf(fp, "%s ", t->title);
+//        fscanf(fp, "%s\n", t->notice);
+        fwrite(t, sizeof(Notice), 1, fp);
         t = t->next;
     }
+
+
+    //将链表尾中的信息写入文件
+//    fscanf(fp, "%s ", t->notice_num);
+//    fscanf(fp, "%s ", t->date);
+//    fscanf(fp, "%s ", t->title);
+//    fscanf(fp, "%s", t->notice);
+    fwrite(t, sizeof(Notice), 1, fp);
+
     fclose(fp);
 }
 

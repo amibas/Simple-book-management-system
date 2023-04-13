@@ -100,9 +100,9 @@ void showManagerNotice(void) {
 //    printf("\t\t借书最多的人：%s", getMostBorrower());
     printf("\n\t\t\t*************************\n\n");
     printf("\t\t\t\t1)查看公告\n");
-    printf("\t\t\t\t2)搜索公告\n");
-    printf("\t\t\t\t3)发布公告\n");
-    printf("\t\t\t\t4)删除公告\n");
+    printf("\t\t\t\t2)发布公告\n");
+    printf("\t\t\t\t3)删除公告\n");
+    printf("\t\t\t\t4)搜索公告\n");
     printf("\t\t\t\t0)返回\n");
     printf("\n\t\t\t*************************\n\n");
 }

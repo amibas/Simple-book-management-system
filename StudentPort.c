@@ -150,7 +150,7 @@ void Find_Password(void) {
         printf("\t\t抱歉，无此账号，即将退出注册系统\n");
         Sleep(1000);
         printf("\t\t···\n");
-        Sleep(3000);
+        Sleep(1500);
         return;
     }
     printf("\t\t%s，您好！\n", find_tem->stu_name);
@@ -256,7 +256,7 @@ void Student_Login(void) {
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }

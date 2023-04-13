@@ -21,7 +21,7 @@ void Manager_Port(void) {
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }
@@ -78,13 +78,13 @@ void Manager_Login(void) {
                 Manager_Change_Password(t);
                 break;
             case '6':
-                showManagerNoticePage();
+                manageNotice();
                 break;
             case '0':
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }
@@ -117,7 +117,7 @@ void showManagerNoticePage(void) {
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }
@@ -335,7 +335,7 @@ void Manager_Add_Book(void) {
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }
@@ -476,7 +476,7 @@ void Manager_Manager_Stu(void) {
                 break;
             default:
                 printf("\t\t输入错误，请重新输入\n");
-                Sleep(3000);
+                Sleep(1500);
                 break;
         }
     }

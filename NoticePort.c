@@ -16,7 +16,7 @@ void studentNotice() {
     while (choice != '0') {
         showStudentNotice();
         printf("\t\t：");
-        choice = getchar();
+        scanf("%c", &choice);
         switch (choice) {
             case '1':
                 View_Notice();  //查看公告
@@ -35,33 +35,75 @@ void studentNotice() {
 }
 
 /**
+ * 管理员公告页面
+ */
+void manageNotice() {
+    char choice = '1';
+
+    while (choice != '0') {
+        while (getchar() != '\n');  //清空缓冲区
+        showManagerNotice();
+        printf("\t\t：");
+        scanf("%c", &choice);
+        switch (choice) {
+            case '1':
+                View_Notice();      //查看公告
+                break;
+            case '2':
+                Publish_Notice();   //发布公告
+                break;
+            case '3':
+                Delete_Notice();    //删除公告
+                break;
+            case '4':
+                findNotice();       //查找公告
+                break;
+            case '0':
+                break;              //退出
+            default:
+                printf("\t\t输入错误，请重新输入：");
+                Sleep(1500);
+                break;
+        }
+    }
+}
+
+/**
  * 显示当前所有公告的编号、标题和发布时间
  */
 void View_Notice() {
-    //打开公告文件
-    FILE *fp;
-    fp = fopen("Notice.txt", "r");
-    if (fp == NULL) {
-        printf("\t\t打开失败\n");
-        exit(1);
-    }
-    //读取公告信息
-    Notice *p = Notice_load();
-    Notice *q = p;
-    //显示公告信息
+    //公告头
+    Notice *p = Notice_head;
+    //打印公告信息
     printf("\t\t公告编号\t\t公告标题\t\t发布时间\n");
-    while (q != NULL) {
-        printf("\t\t%s\t\t%s\t\t%s\n", q->notice_num, q->title, q->date);
-        q = q->next;
+    while (p->next != NULL) {
+        p = p->next;
+        printf("\t\t%s\t\t%s\t\t%s\n", p->notice_num, p->title, p->date);
     }
-    //无公告提示
-    if (p == NULL) {
-        printf("\t\t暂无公告\n");
+    //输入编号查看具体内容,输入0返回
+    printf("\t\t请输入你要查看的公告编号(输入0返回)：");
+    char num[10];
+    scanf("%s", num);
+    if (strcmp(num, "0") == 0) {
+        return;
     }
-
-
-    fclose(fp);
-    Sleep(1500);
+    //查找公告
+    p = Notice_head;
+    while (p->next != NULL) {
+        p = p->next;
+        if (strcmp(p->notice_num, num) == 0) {
+            printf("\t\t公告编号：%s\n", p->notice_num);
+            printf("\t\t公告标题：%s\n", p->title);
+            printf("\t\t公告内容：%s\n", p->notice);
+            printf("\t\t发布时间：%s\n", p->date);
+            printf("\t\t任意键返回");
+            _getch();
+            return;
+        }
+    }
+    if (p->next == NULL) {
+        printf("\t\t没有找到该公告\n");
+    }
     //任意键返回
     printf("\t\t任意键返回");
     _getch();
@@ -71,48 +113,43 @@ void View_Notice() {
  * 发布公告
  */
 void Publish_Notice() {
-    //打开公告文件
-    Notice *p = (Notice *) malloc(sizeof(Notice));
-    FILE *fp;
-    fp = fopen("Notice.txt", "a");
-    if (fp == NULL) {
-        printf("\t\t打开失败\n");
-        exit(1);
+    //公告头
+    Notice *p = Notice_head;
+    //移动到链表尾
+    while (p->next != NULL) {
+        p = p->next;
     }
-
-    //用随机字符自动生成公告编号
-    RandStr(9, p->notice_num);
-
-    //标题
+    //创建新节点
+    Notice *new = (Notice *) malloc(sizeof(Notice));
+    new->next = NULL;
+    //输入公告信息
     printf("\t\t请输入公告标题：");
-    scanf("%s", p->title);
-
-    //自动生成公告发布时间
-    time_t t;
-    time(&t);
-    strcpy(p->notice_num, ctime(&t));
-
-    //内容
+    strcmp(new->title, '\0');
+    scanf("%s", new->title);
     printf("\t\t请输入公告内容：");
-    scanf("%s", p->notice);
-
+    strcmp(new->notice, '\0');
+    scanf("%s", new->notice);
+    //生成公告编号
+    strcmp(new->notice_num, '\0');
+    RandStr(8, new->notice_num);
+    //生成发布时间
+    int i = 0;
+    time_t tt = time(0);
+    //产生“YYYY-MM-DD hh:mm:ss”格式的字符串。
+    char s[32];
+    strftime(s, sizeof(s), "%Y-%m-%d %H:%M:%S", localtime(&tt));
+    //s[i] = '\n';
+    s[31] = '\n';
+    strcpy(new->date, s);
+    //将新节点插入链表
+    p->next = new;
     //将公告信息写入文件
-    Save_Notice();
-    fclose(fp);
+    printf("\t\t发布成功\n");
+    Sleep(1500);
 }
 
 /*删除公告*/
 void Delete_Notice() {
-    //将公告文件清空
-    FILE *fp;
-    fp = fopen("Notice.txt", "w");
-    if (fp == NULL) {
-        printf("\t\t打开失败\n");
-        exit(1);
-    }
-    fclose(fp);
-    printf("\t\t删除成功\n");
-    Sleep(1500);
 }
 
 /*搜索公告*/
@@ -123,7 +160,7 @@ void findNotice() {
     scanf("%s", title);
     //打开公告文件
     FILE *fp;
-    fp = fopen("Notice.txt", "r");
+    fp = fopen("Notice.dat", "r");
     if (fp == NULL) {
         printf("\t\t打开失败\n");
         exit(1);
