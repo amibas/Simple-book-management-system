@@ -10,6 +10,7 @@
 #include "DataManagement.h"
 #include "NotClassified.h"
 #include "StudentPage.h"
+#include "NoticePort.h"
 
 
 extern void Manager_Port(void);                         //管理端
@@ -47,6 +48,8 @@ extern void Manager_Return_Stu(void);                   //管理端还书
 extern Student *Find_Stu(char *Stu_Stuty);              //管理端查找学生
 
 extern void Manager_Del_Stu(void);                      //管理端删除学生
+
+extern void showManagerNoticePage(void);                //管理端公告页面
 
 
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_MANAGEPAGE_H

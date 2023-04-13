@@ -77,6 +77,9 @@ void Manager_Login(void) {
             case '5':
                 Manager_Change_Password(t);
                 break;
+            case '6':
+                showManagerNoticePage();
+                break;
             case '0':
                 break;
             default:
@@ -87,6 +90,37 @@ void Manager_Login(void) {
     }
 
 
+}
+
+/*管理员公告管理*/
+void showManagerNoticePage(void) {
+    char mn = '1';
+    while (mn != '0') {
+        showManagerNotice();
+        printf("\t\t：");
+        scanf("%c", &mn);
+        while (getchar() != '\n');
+        switch (mn) {
+            case '1':
+                View_Notice();
+                break;
+            case '2':
+                findNotice();
+                break;
+            case '3':
+                Publish_Notice();
+                break;
+            case '4':
+                Delete_Notice();
+                break;
+            case '0':
+                break;
+            default:
+                printf("\t\t输入错误，请重新输入\n");
+                Sleep(3000);
+                break;
+        }
+    }
 }
 
 /*核对管理员账号*/

@@ -4,6 +4,7 @@
 
 #include "StudentPort.h"
 
+
 /**
  * 学生端
  */
@@ -119,9 +120,7 @@ void Student_Register(void) {
     getch();
 }
 
-/**
- * 找回密码
- */
+/*找回密码*/
 void Find_Password(void) {
     Student *find_tem;
     char num_tem[50];
@@ -236,18 +235,21 @@ void Student_Login(void) {
         while (getchar() != '\n');
         switch (sl) {
             case '1':
-                Stu_Borrow(enter_stu);
+                Stu_Borrow(enter_stu);              //借书
                 break;
             case '2':
-                Stu_Back(enter_stu);
+                Stu_Back(enter_stu);                //还书
                 break;
             case '3':
-                Find_Book();
+                Find_Book();                                //查找书籍
                 break;
             case '4':
-                Find_Theborrow(enter_stu);
+                Find_Theborrow(enter_stu);          //查找借阅
                 break;
             case '5':
+                studentNotice();                            //查看公告
+                break;
+            case '6':
                 Change_Stupassword(enter_stu);
                 break;
             case '0':

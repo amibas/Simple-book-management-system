@@ -11,25 +11,35 @@ Manager *Manager_head;
 Notice *Notice_head;
 
 
-/*借书最多的人*/
-char *getMostBorrower() {
+/*根据stu_bor_book设置每人的借书数量*/
+void setBorrowCount() {
     Student *p = Student_head;
-    int max = 0;
-    char *name = (char *) malloc(sizeof(char) * 20);
     while (p != NULL) {
         int count = 0;
         for (int i = 0; i < 10; i++) {
-            if (strcmp(p->stu_bor_book[i], "0") != 0) {
+            if (strcmp(p->stu_bor_book[i], "0") != 0)
                 count++;
-            }
         }
+        p->stu_bor_count = count;
+        p = p->next;
+    }
+}
+
+/*借书最多的人的学号*/
+char *getMostBorrower() {
+    Student *p = Student_head;
+    int max = 0;
+    char *num = (char *) malloc(sizeof(char) * 20);
+    setBorrowCount();
+    while (p != NULL) {
+        int count = p->stu_bor_count;
         if (count > max) {
             max = count;
-            strcpy(name, p->stu_name);
+            strcpy(num, p->stu_num);
         }
         p = p->next;
     }
-    return name;
+    return num;
 }
 
 /*获取书籍数量*/
@@ -37,7 +47,7 @@ int getBookCount() {
     Book *p = Book_head;
     int count = 0;
     while (p != NULL) {
-        count++;
+        count += p->book_rest;
         p = p->next;
     }
     return count;
@@ -228,7 +238,7 @@ void Save_Student(void) {
         fprintf(fp, "%s\n", t->stu_bor_book[9]);
         t = t->next;
     }
-
+    //将最后一个结点的信息写入文件
     int len = strlen(t->stu_passw);                                     //密码加密
     for (int i = 0; i < len; i++) {
         t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
@@ -302,14 +312,19 @@ Notice *Notice_load(void) {
     }
     rewind(fp);
     //将文件中的信息读入链表
+    Notice *head = (Notice *) malloc(sizeof(Notice));
+    head->next = NULL;
+    Notice *q = head;
     while (!feof(fp)) {
         p = (Notice *) malloc(sizeof(Notice));
-        p->next = NULL;
-        fscanf(fp, "%s", p->notice_num);
-        fscanf(fp, "%s", p->date);
-        fscanf(fp, "%s", p->title);
-        fscanf(fp, "%s", p->notice);
+        fscanf(fp, "%s ", p->notice_num);
+        fscanf(fp, "%s ", p->date);
+        fscanf(fp, "%s ", p->title);
+        fscanf(fp, "%s\n", p->notice);
+        q->next = p;
+        q = p;
     }
+    return head;
 }
 
 /*保存公告*/
@@ -327,7 +342,7 @@ void Save_Notice(void) {
         fprintf(fp, "%s ", t->notice_num);
         fprintf(fp, "%s ", t->date);
         fprintf(fp, "%s ", t->title);
-        fprintf(fp, "%s", t->notice);
+        fprintf(fp, "%s\n", t->notice);
         t = t->next;
     }
     fclose(fp);

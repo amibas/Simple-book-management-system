@@ -12,6 +12,7 @@
 #include "Gui.h"
 #include "NotClassified.h"
 #include "StudentPage.h"
+#include "NoticePort.h"
 
 
 extern void Student_Port(void);               //学生界面
