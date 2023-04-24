@@ -144,6 +144,7 @@ void Publish_Notice() {
     //将新节点插入链表
     p->next = new;
     //将公告信息写入文件
+    Save_Notice();
     printf("\t\t发布成功\n");
     Sleep(1500);
 }

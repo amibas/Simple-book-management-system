@@ -303,8 +303,10 @@ Notice *Notice_load(void) {
     FILE *fp;
     Notice *h = NULL, *t = h, *p;
     if ((fp = fopen("Notice.txt", "r")) == NULL) {
-        printf("\t\t打开失败\n");
-        exit(1);
+        //创建文件
+        fp = fopen("Notice.txt", "w+");
+        fclose(fp);
+        Notice_load();
     }
     getc(fp);
     if (feof(fp)) {
@@ -337,7 +339,8 @@ void Save_Notice(void) {
         printf("\t\t打开失败\n");
         exit(1);
     }
-    while (t->next != NULL) {
+    fseek(fp, 0, 1);
+    while (t != NULL) {
         fprintf(fp, "%s %s %s %s\n", t->notice_num, t->date, t->title, t->notice);
         t = t->next;
     }
