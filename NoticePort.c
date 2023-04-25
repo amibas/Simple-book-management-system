@@ -15,7 +15,7 @@ void studentNotice() {
 
     while (choice != '0') {
         showStudentNotice();
-        printf("\t\t：");
+        printf("\t\t\t\t：");
         scanf("%c", &choice);
         switch (choice) {
             case '1':
@@ -31,6 +31,8 @@ void studentNotice() {
                 Sleep(1500);
                 break;
         }
+        //清空缓冲区
+        while (getchar() != '\n');
     }
 }
 
@@ -41,10 +43,10 @@ void manageNotice() {
     char choice = '1';
 
     while (choice != '0') {
-        while (getchar() != '\n');  //清空缓冲区
         showManagerNotice();
-        printf("\t\t：");
-        scanf("%c", &choice);
+        printf("\t\t请输入选择：");
+        choice = getchar();
+        while (getchar() != '\n');  //清空缓冲区
         switch (choice) {
             case '1':
                 View_Notice();      //查看公告
@@ -65,6 +67,8 @@ void manageNotice() {
                 Sleep(1500);
                 break;
         }
+        //清空缓冲区
+        while (getchar() != '\n');
     }
 }
 

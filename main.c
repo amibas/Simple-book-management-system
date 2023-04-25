@@ -22,6 +22,7 @@ int main(void) {
     char ma = '1';
     system("color F4"); //设置控制台颜色
     while (ma != '0') {
+        system("CLS");
         show_main();
         printf("\t\t\t：");
         scanf("%c", &ma);

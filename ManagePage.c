@@ -6,11 +6,13 @@
 
 /*管理员端*/
 void Manager_Port(void) {
+    system("CLS");
     char mp = '1';
 
     while (mp != '0') {
+        system("CLS");
         show_manager();
-        printf("\t\t：");
+        printf("\t\t\t\t\t：");
         scanf("%c", &mp);
         while (getchar() != '\n');
         switch (mp) {
@@ -32,33 +34,34 @@ void Manager_Login(void) {
     char Manager_num[20];
     char ml = '1';
     Manager *t;
-    printf("\n\t\t账号：");
+    printf("\n\t\t\t\t账号：");
     gets(Manager_num);
     t = Manager_check(Manager_num);
     if (!t) {
-        printf("\t\t抱歉，账号不存在\n");
-        printf("\t\t按任意键退出");
+        printf("\t\t\t\t抱歉，账号不存在\n");
+        printf("\t\t\t\t按任意键退出");
         getch();
         return;
     }
-    printf("\t\t密码：");
+    printf("\t\t\t\t密码：");
     if (Password_Text_Find(t->man_passw) == 0) {
-        printf("\n\t\t已经错误输入密码三次，将退出登录系统···\n");
+        printf("\n\t\t\t\t已经错误输入密码三次，将退出登录系统···\n");
         Sleep(5000);
         return;
     }
     Sleep(500);
-    printf("\n\t\t登录中···\n");
+    printf("\n\t\t\t\t登录中···\n");
     Sleep(500);
-    printf("\t\t登录成功···\n");
+    printf("\t\t\t\t登录成功···\n");
     Sleep(500);
-    printf("\t\t正在加载···\n");
+    printf("\t\t\t\t正在加载···\n");
     Sleep(1000);
 
 
     while (ml != '0') {
+        system("CLS");
         show_manager_enter();
-        printf("\t\t：");
+        printf("\t\t\t\t\t：");
         scanf("%c", &ml);
         while (getchar() != '\n');
         switch (ml) {
@@ -83,7 +86,7 @@ void Manager_Login(void) {
             case '0':
                 break;
             default:
-                printf("\t\t输入错误，请重新输入\n");
+                printf("\t\t\t\t输入错误，请重新输入\n");
                 Sleep(1500);
                 break;
         }
@@ -113,7 +116,7 @@ void Manager_Look_Book(void) {
     printf("\t\t\t2)按库存升序浏览书架\n");
     printf("\t\t\t3)按价格升序浏览书架\n\n");
 
-    printf("\t\t：");
+    printf("\t\t\t\t：");
     scanf("%c", &ml);
     while (getchar() != '\n');
     switch (ml) {
@@ -307,6 +310,7 @@ void Manager_Add_Book(void) {
                 Sleep(1500);
                 break;
         }
+
     }
 }
 

@@ -14,7 +14,7 @@ void Student_Port(void) {
     //学生端界面
     while (sp != '0') {
         show_stu(); //显示学生端界面
-        printf("\t\t\t：");
+        printf("\t\t\t\t\t\t：");
 
         scanf("%c", &sp);   //输入选择
         //判断选择
@@ -196,39 +196,39 @@ void Student_Login(void) {
     Student *enter_stu;
     while (getchar() != '\n');  //清空缓冲区
     while (l != 6) {
-        printf("\n\t\t请输入你的账号：");
+        printf("\n\t\t\t\t请输入你的账号：");
         gets(enter_num);
         l = strlen(enter_num);
         if (l != 6)
-            printf("\t\t账号有误，请输入正确长度的账号\n");
+            printf("\t\t\t\t账号有误，请输入正确长度的账号\n");
     }
     enter_num[6] = '\0';
     enter_stu = Find_Num(enter_num);
     if (enter_stu == NULL) {
-        printf("\n\t\t抱歉，无此账号");
+        printf("\n\t\t\t\t抱歉，无此账号");
         Sleep(500);
-        printf("\n\t\t按任意键退出");
+        printf("\n\t\t\t\t按任意键退出");
         getch();
         return;
     }
-    printf("\t\t请输入密码：");
+    printf("\t\t\t\t请输入密码：");
     if (Password_Text_Find(enter_stu->stu_passw) == 0) {
-        printf("\n\t\t您已连续输错3次，将退出登录系统···");
+        printf("\n\t\t\t\t您已连续输错3次，将退出登录系统···");
         Sleep(2000);
         return;
     }
     Sleep(500);
-    printf("\n\t\t正在登录");
+    printf("\n\t\t\t\t正在登录");
     Sleep(500);
-    printf("\n\t\t···\n");
+    printf("\n\t\t\t\t···\n");
     Sleep(500);
-    printf("\n\t\t登录成功！\n");
+    printf("\n\t\t\t\t登录成功！\n");
     Sleep(1000);
 
 
     while (sl != '0') {
         show_stu_enter();
-        printf("\t\t：");
+        printf("\t\t\t\t：");
         scanf("%c", &sl);
         while (getchar() != '\n');  //清空缓冲区
         switch (sl) {
