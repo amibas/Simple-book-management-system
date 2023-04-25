@@ -124,13 +124,13 @@ void Publish_Notice() {
     new->next = NULL;
     //输入公告信息
     printf("\t\t请输入公告标题：");
-    strcmp(new->title, '\0');
+    strcmp(new->title, "\0");
     scanf("%s", new->title);
     printf("\t\t请输入公告内容：");
-    strcmp(new->notice, '\0');
+    strcmp(new->notice, "\0");
     scanf("%s", new->notice);
     //生成公告编号
-    strcmp(new->notice_num, '\0');
+    strcmp(new->notice_num, "\0");
     RandStr(8, new->notice_num);
     //生成发布时间
     int i = 0;
@@ -151,31 +151,89 @@ void Publish_Notice() {
 
 /*删除公告*/
 void Delete_Notice() {
+    //公告头
+    Notice *p = Notice_head;
+    //打印公告信息
+    printf("\t\t公告编号\t\t公告标题\t\t发布时间\n");
+    while (p->next != NULL) {
+        p = p->next;
+        printf("\t\t%s\t\t%s\t\t%s\n", p->notice_num, p->title, p->date);
+    }
+    //输入编号查看具体内容,输入0返回
+    printf("\t\t请输入你要删除的公告编号(输入0返回)：");
+    char num[10];
+    scanf("%s", num);
+    if (strcmp(num, "0") == 0) {
+        return;
+    }
+    //查找公告
+    p = Notice_head;
+    while (p->next != NULL) {
+        if (strcmp(p->next->notice_num, num) == 0) {
+            Notice *q = p->next;    //q指向要删除的节点
+            p->next = q->next;      //删除节点
+            free(q);
+            printf("\t\t删除成功\n");
+            Sleep(1500);
+            return;
+        }
+        p = p->next;
+    }
+    if (p->next == NULL) {
+        printf("\t\t没有找到该公告\n");
+    }
+    //任意键返回
+    printf("\t\t任意键返回");
+    _getch();
 }
 
 /*搜索公告*/
 void findNotice() {
-    //输入搜索的公告标题
-    char title[20];
-    printf("\t\t请输入公告标题：");
-    scanf("%s", title);
-    //打开公告文件
-    FILE *fp;
-    fp = fopen("Notice.dat", "r");
-    if (fp == NULL) {
-        printf("\t\t打开失败\n");
-        exit(1);
+    //公告头
+    Notice *p = Notice_head;
+    //打印公告信息
+    printf("\t\t公告编号\t\t公告标题\t\t发布时间\n");
+    while (p->next != NULL) {
+        p = p->next;
+        printf("\t\t%s\t\t%s\t\t%s\n", p->notice_num, p->title, p->date);
     }
-    //查找公告
-    while (!feof(fp)) {
-        char notice[100];
-        fscanf(fp, "%s", notice);
-        if (strcmp(notice, title) == 0) {
-            printf("\t\t%s\n", notice);
-            Sleep(1500);
-            return;
+    //输入编号查看具体内容,输入0返回
+    printf("\t\t请输入你要查找的公告标题(输入0返回)：");
+    char title[20];
+    scanf("%s", title);
+    if (strcmp(title, "0") == 0) {
+        return;
+    }
+    //模糊搜索公告
+    p = Notice_head;
+    while (p->next != NULL) {
+        p = p->next;
+        int n = 0;
+        for (int i = 0; i < strlen(title); i++) {
+            for (int j = 0; j < strlen(p->title); j++) {
+                if (title[i] == p->title[j]) {
+                    n = 1;
+                    break;
+                } else {
+                    n = 0;
+                }
+
+            }
+            if (i == strlen(title) - 1 && n == 1) {
+                printf("\t\t公告编号：%s\n", p->notice_num);
+                printf("\t\t公告标题：%s\n", p->title);
+                printf("\t\t公告内容：%s\n", p->notice);
+                printf("\t\t发布时间：%s\n", p->date);
+                printf("\t\t任意键返回");
+                _getch();
+                return;
+            }
         }
     }
-    printf("\t\t未找到该公告\n");
-    Sleep(1500);
+    if (p->next == NULL) {
+        printf("\t\t没有找到该公告\n");
+    }
+    //任意键返回
+    printf("\t\t任意键返回");
+    _getch();
 }
