@@ -116,17 +116,6 @@ Student *Student_load(void) {
         for (int i = 0; i < 10; i++) {                                  //读取学生借阅的书籍
             fscanf(fp, "%s", p->stu_bor_book[i]);
         }
-
-//        int len = strlen(p->stu_passw);                             //密码解密
-//        for (int i = 0; i < len; i++) {
-//            p->stu_passw[i] = p->stu_passw[i] - (i % 4 + 1);
-//        }
-
-//        len = strlen(p->stu_find_passw);                            //密保密码解密
-//        for (int i = 0; i < len; i++) {
-//            p->stu_find_passw[i] = p->stu_find_passw[i] - (i % 4 + 1);
-//        }
-
         if (h == NULL)
             h = p;
         else
@@ -158,11 +147,6 @@ Manager *Manager_load(void) {
         fscanf(fp, "%s", p->man_name);
         fscanf(fp, "%s", p->man_acc);
         fscanf(fp, "%s", p->man_passw);
-//        int len = strlen(p->man_passw);                     //密码解密
-//        for (int i = 0; i < len; i++) {
-//            p->man_passw[i] = p->man_passw[i] - (i % 4 + 1);
-//
-//        }
         if (h == NULL)
             h = p;
         else
@@ -214,15 +198,6 @@ void Save_Student(void) {
         exit(1);
     }
     while (t->next) {
-//        int len = strlen(t->stu_passw);                                 //密码加密
-//        for (int i = 0; i < len; i++) {
-//            t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
-//        }
-//
-//        len = strlen(t->stu_find_passw);                                //密保密码加密
-//        for (int i = 0; i < len; i++) {
-//            t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
-//        }
         //将链表中的信息写入文件
         fprintf(fp, "%s ", t->stu_acc);
         fprintf(fp, "%s ", t->stu_passw);
@@ -238,16 +213,6 @@ void Save_Student(void) {
         fprintf(fp, "%s\n", t->stu_bor_book[9]);
         t = t->next;
     }
-    //将最后一个结点的信息写入文件
-//    int len = strlen(t->stu_passw);                                     //密码加密
-//    for (int i = 0; i < len; i++) {
-//        t->stu_passw[i] = t->stu_passw[i] + (i % 4 + 1);
-//    }
-//
-//    len = strlen(t->stu_find_passw);                                    //密保密码加密
-//    for (int i = 0; i < len; i++) {
-//        t->stu_find_passw[i] = t->stu_find_passw[i] + (i % 4 + 1);
-//    }
     //将链表中的信息写入文件
     fprintf(fp, "%s ", t->stu_acc);
     fprintf(fp, "%s ", t->stu_passw);
@@ -277,20 +242,12 @@ void Save_Manger(void) {
     }
 
     while (t->next) {
-//        int len = strlen(t->man_passw);                     //密码加密
-//        for (int i = 0; i < len; i++) {
-//            t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
-//        }
         fprintf(fp, "%s ", t->man_name);
         fprintf(fp, "%s ", t->man_acc);
         fprintf(fp, "%s\n", t->man_passw);
         t = t->next;
     }
 
-//    int len = strlen(t->man_passw);                         //密码加密
-//    for (int i = 0; i < len; i++) {
-//        t->man_passw[i] = t->man_passw[i] + (i % 4 + 1);
-//    }
     //将链表中的信息写入文件
     fprintf(fp, "%s ", t->man_name);
     fprintf(fp, "%s ", t->man_acc);
