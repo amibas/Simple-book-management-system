@@ -49,7 +49,5 @@ extern Student *Find_Stu(char *Stu_Stuty);              //管理端查找学生
 
 extern void Manager_Del_Stu(void);                      //管理端删除学生
 
-extern void showManagerNoticePage(void);                //管理端公告页面
-
 
 #endif //SIMPLE_BOOK_MANAGEMENT_SYSTEM_MANAGEPAGE_H

@@ -30,7 +30,6 @@ typedef struct stu {                //学生结构体链表
     char stu_num[10];               //学生学号
     char stu_name[20];              //学生姓名
     char stu_tel[15];               //学生电话
-    int stu_bor_count;              //所借书数量
     char stu_bor_book[10][20];      //所借书号
     struct stu *next;               //下位学生
 } Student;
@@ -56,7 +55,6 @@ extern Student *Student_head;   //学生头指针
 extern Manager *Manager_head;   //管理员头指针
 extern Notice *Notice_head;     //公告头指针
 
-extern char *getMostBorrower();     //最多借书人
 
 extern int getBookCount();          //书籍数量
 

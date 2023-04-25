@@ -44,7 +44,6 @@ void Student_Port(void) {
  */
 void Student_Register(void) {
     //初始化变量
-    char password[20];  //密码
     Student *t; //临时指针
     Student *new = (Student *) malloc(sizeof(Student)); //新节点
     new->next = NULL;   //新节点指针域置空
@@ -124,7 +123,6 @@ void Student_Register(void) {
 void Find_Password(void) {
     Student *find_tem;
     char num_tem[50];
-    char password_find[20];
     printf("\t\t欢迎来到找回密码系统\n");
     Sleep(500);
     printf("\t\t···\n");
@@ -193,7 +191,6 @@ void Student_Login(void) {
 
     char sl = '1';
     char enter_num[50];
-    char enter_passw[20];
     int l = 1;
 
     Student *enter_stu;

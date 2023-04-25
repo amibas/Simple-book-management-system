@@ -133,7 +133,6 @@ void Publish_Notice() {
     strcmp(new->notice_num, "\0");
     RandStr(8, new->notice_num);
     //生成发布时间
-    int i = 0;
     time_t tt = time(0);
     //产生“YYYY-MM-DD-hh:mm:ss”格式的字符串。
     char s[32];

@@ -11,37 +11,6 @@ Manager *Manager_head;
 Notice *Notice_head;
 
 
-/*根据stu_bor_book设置每人的借书数量*/
-void setBorrowCount() {
-    Student *p = Student_head;
-    while (p != NULL) {
-        int count = 0;
-        for (int i = 0; i < 10; i++) {
-            if (strcmp(p->stu_bor_book[i], "0") != 0)
-                count++;
-        }
-        p->stu_bor_count = count;
-        p = p->next;
-    }
-}
-
-/*借书最多的人的学号*/
-char *getMostBorrower() {
-    Student *p = Student_head;
-    int max = 0;
-    char *num = (char *) malloc(sizeof(char) * 20);
-    setBorrowCount();
-    while (p != NULL) {
-        int count = p->stu_bor_count;
-        if (count > max) {
-            max = count;
-            strcpy(num, p->stu_num);
-        }
-        p = p->next;
-    }
-    return num;
-}
-
 /*获取书籍数量*/
 int getBookCount() {
     Book *p = Book_head;

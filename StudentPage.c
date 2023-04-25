@@ -284,7 +284,6 @@ void Stu_Back(Student *Stu_num) {
 /*¥Ú”°À˘ΩË ÈºÆ*/
 void Print_Borbook(Student *Stu_num) {
 
-    int tem = 0;
     Book *t;
     printf("\n\n\t*************************");
     printf("********************************\n\n");

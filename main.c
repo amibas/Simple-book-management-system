@@ -3,7 +3,6 @@
 #include "DataManagement.h"
 #include "StudentPort.h"
 #include "ManagePage.h"
-#include "NoticePort.h"
 
 //Ö÷º¯Êý
 int main(void) {
