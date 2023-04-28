@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2023-04-25T08:25:02.822Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.0.0" etag="GMq94L4lANhiwUk_P24y" version="21.1.4" type="device">
+  <diagram name="第 1 页" id="VWjC7sWMTihgT8pk55p0">
+    <mxGraphModel dx="2366" dy="1039" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5-PACKHeAikO56H0yLKL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-1" target="5-PACKHeAikO56H0yLKL-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-1" value="开始" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-2" target="5-PACKHeAikO56H0yLKL-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="333" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-2" value="功能选择" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-7" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-4" target="5-PACKHeAikO56H0yLKL-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-10" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-4" target="5-PACKHeAikO56H0yLKL-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-4" value="1" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-24" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-6" target="5-PACKHeAikO56H0yLKL-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-25" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-6" target="5-PACKHeAikO56H0yLKL-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="493" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-6" value="0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="453" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-9" target="5-PACKHeAikO56H0yLKL-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-9" value="登录" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="273" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-11" target="5-PACKHeAikO56H0yLKL-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-11" value="输入账号" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="273" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-16" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-13" target="5-PACKHeAikO56H0yLKL-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-17" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-13" target="5-PACKHeAikO56H0yLKL-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="600" />
+              <mxPoint x="420" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-13" value="是否存在" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="560" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-15" target="5-PACKHeAikO56H0yLKL-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-15" value="输入密码" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="273" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-20" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-18" target="5-PACKHeAikO56H0yLKL-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="800" />
+              <mxPoint x="420" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-22" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5-PACKHeAikO56H0yLKL-18" target="5-PACKHeAikO56H0yLKL-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-18" value="是否正确" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="760" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-21" value="结束" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="273" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5-PACKHeAikO56H0yLKL-23" value="结束" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="433" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
