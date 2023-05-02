@@ -63,7 +63,7 @@ void Manager_Login(void) {
         show_manager_enter();
         printf("\t\t\t\t\t£º");
         scanf("%c", &ml);
-        while (getchar() != '\n');
+        while (getchar() != '\n'&&getchar() != EOF);
         switch (ml) {
             case '1':
                 Manager_Add_Book();
@@ -118,7 +118,7 @@ void Manager_Look_Book(void) {
 
     printf("\t\t\t\t£º");
     scanf("%c", &ml);
-    while (getchar() != '\n');
+    while (getchar() != '\n' && getchar() != EOF);
     switch (ml) {
         case '1':
             Lookofnum();

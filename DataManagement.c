@@ -11,7 +11,9 @@ Manager *Manager_head;
 Notice *Notice_head;
 
 
-/*获取书籍数量*/
+/**
+ * 获取书籍数量
+ */
 int getBookCount() {
     Book *p = Book_head;
     int count = 0;
@@ -22,7 +24,10 @@ int getBookCount() {
     return count;
 }
 
-/*载入书籍 */
+/**
+ * 载入书籍信息
+ * @return bookHead
+ */
 Book *Book_load() {
     FILE *fp;
     Book *h = NULL, *t = h, *p;
