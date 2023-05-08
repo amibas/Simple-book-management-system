@@ -79,13 +79,21 @@ Student *Student_load(void) {
     while (!feof(fp)) {
         p = (Student *) malloc(sizeof(Student));
         p->next = NULL;
+        //初始化为数据为‘\0’
+        strcpy(p->stu_acc, "\0");
+        strcpy(p->stu_passw, "\0");
+        strcpy(p->stu_find_question, "\0");
+        strcpy(p->stu_find_passw, "\0");
+        strcpy(p->stu_num, "\0");
+        strcpy(p->stu_name, "\0");
+
         //将文件中的信息读取到结构体中
-        fscanf(fp, "%s", p->stu_acc);
-        fscanf(fp, "%s", p->stu_passw);
-        fscanf(fp, "%s", p->stu_find_question);
-        fscanf(fp, "%s", p->stu_find_passw);
-        fscanf(fp, "%s", p->stu_num);
-        fscanf(fp, "%s", p->stu_name);
+        fscanf(fp, "%s ", p->stu_acc);
+        fscanf(fp, "%s ", p->stu_passw);
+        fscanf(fp, "%s ", p->stu_find_question);
+        fscanf(fp, "%s ", p->stu_find_passw);
+        fscanf(fp, "%s ", p->stu_num);
+        fscanf(fp, "%s ", p->stu_name);
         fscanf(fp, "%s", p->stu_tel);
         for (int i = 0; i < 10; i++) {                                  //读取学生借阅的书籍
             fscanf(fp, "%s", p->stu_bor_book[i]);

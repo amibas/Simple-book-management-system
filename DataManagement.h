@@ -27,7 +27,7 @@ typedef struct stu {                //学生结构体链表
     char stu_passw[15];             //学生密码
     char stu_find_question[30];     //密保问题
     char stu_find_passw[15];        //密保问题密码
-    char stu_num[10];               //学生学号
+    char stu_num[20];               //学生学号
     char stu_name[20];              //学生姓名
     char stu_tel[15];               //学生电话
     char stu_bor_book[10][20];      //所借书号
